@@ -2,9 +2,8 @@ package pl.misiurek.shop.admin.category.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import pl.misiurek.shop.admin.category.domian.model.Category;
 import pl.misiurek.shop.admin.category.service.CategoryService;
 
 import java.util.UUID;
@@ -23,13 +22,39 @@ public class CategoryAdminViewController {
     @GetMapping
     public String indexView(Model model){
         model.addAttribute("categories", categoryService.getCategories());
-        return "admin/adminIndex";
+        return "admin/category/index";
+//        return "admin/template";
     }
 
     @GetMapping("{id}")
     public String editView(Model model, @PathVariable UUID id){
         model.addAttribute("category", categoryService.getCategory(id));
-        return "admin/editCategory";
+        return "admin/category/edit";
+//        return  "admin/template";
+    }
+
+    @PostMapping("{id}")
+    public String edit(@ModelAttribute("category")Category category,@PathVariable UUID id){ // @ModelAttribute - połączenie informacji z widoku
+        categoryService.updateCategory(id,category);
+        return "redirect:/admin/categories";
+    }
+    @GetMapping("{id}/delete")
+    public String deleteView(@PathVariable UUID id){
+        categoryService.deleteCategory(id);
+        return "redirect:/admin/categories";
+
+    }
+    @GetMapping("add")
+    public String addView(Model model){
+        model.addAttribute("category", new Category());
+
+        return "admin/category/add";
+    }
+
+    @PostMapping
+    public String add(Category category){
+        categoryService.createCategory(category);
+        return "redirect:/admin/categories";
     }
 
 }

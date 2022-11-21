@@ -1,6 +1,7 @@
 package pl.misiurek.shop.admin.product.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pl.misiurek.shop.admin.category.domian.model.Category;
 import pl.misiurek.shop.admin.category.domian.repository.CategoryRepository;
 import pl.misiurek.shop.admin.product.domain.model.Product;
@@ -20,15 +21,21 @@ public class ProductService {
         this.categoryRepository = categoryRepository;
     }
 
+    public List<Product> getProductsWithoutCategory(){
+        return productRepository.findAll();
+    }
+
+    @Transactional(readOnly = true)
     public List<Product> getProducts(UUID categoryId) {
         return productRepository.findAllByCategoryId(categoryId);
     }
 
+    @Transactional(readOnly = true)
     public Product getProduct(UUID productId) {
         return productRepository.findById(productId).get();
     }
 
-
+    @Transactional
     public Product createProduct(UUID categoryId, Product productRequest) {
         Product product = new Product();
         product.setName(productRequest.getName());
@@ -41,16 +48,21 @@ public class ProductService {
         return product;
     }
 
+    @Transactional
     public Product updateProduct(UUID productId, Product productRequest) {
         Product product = productRepository.findById(productId).get();
         product.setName(productRequest.getName());
+        product.setPrice(productRequest.getPrice());
         return productRepository.save(product);
     }
 
+
+    @Transactional
     public void deleteProduct(UUID productId) {
         productRepository.deleteById(productId);
     }
 
+    @Transactional(readOnly = true)
     public List<Product> findAllByCategoryId(UUID id) {
         return productRepository.findAllByCategoryId(id);
     }

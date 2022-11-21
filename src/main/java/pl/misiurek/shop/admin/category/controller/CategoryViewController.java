@@ -26,15 +26,17 @@ public class CategoryViewController {
         this.productService = productService;
     }
 
+
     @GetMapping("{id}")
     public String singleView(@PathVariable UUID id, Model model){
         Category category = categoryService.getCategory(id);
         List<Product> products = productService.findAllByCategoryId(id);
 
+        model.addAttribute("categories", categoryService.getCategories());
         model.addAttribute("category", category);
         model.addAttribute("products", products);
 
-        return "admin/singleCategory";
+        return "shop/singleCategory";
     }
 
 
