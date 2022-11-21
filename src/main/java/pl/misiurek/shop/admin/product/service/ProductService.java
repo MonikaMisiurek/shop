@@ -1,5 +1,7 @@
 package pl.misiurek.shop.admin.product.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.misiurek.shop.admin.category.domian.model.Category;
@@ -21,8 +23,16 @@ public class ProductService {
         this.categoryRepository = categoryRepository;
     }
 
-    public List<Product> getProductsWithoutCategory(){
-        return productRepository.findAll();
+    public Page<Product> getProductsWithoutCategory(Pageable pageable){
+        return getProductsWithoutCategory(pageable, null);
+    }
+    public Page<Product>getProductsWithoutCategory(Pageable pageable, String search){
+        if (search == null){
+            return productRepository.findAll(pageable);
+        }else {
+            return productRepository.findByNameContainingIgnoreCase(search, pageable);
+
+        }
     }
 
     @Transactional(readOnly = true)

@@ -1,5 +1,6 @@
 package pl.misiurek.shop.admin.product.controller;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,24 +27,18 @@ public class ProductViewController {
 
     @GetMapping
     public String indexView(Model model){
-        model.addAttribute("categories", categoryService.getCategories());
-        model.addAttribute("products", productService.getProductsWithoutCategory());
+        model.addAttribute("categories", categoryService.getCategories(Pageable.unpaged()));
+        model.addAttribute("products", productService.getProductsWithoutCategory(Pageable.unpaged()));
         return "shop/index";
     }
 
     @GetMapping("{id}")
     public String singleProductView(Model model, @PathVariable UUID id){
         Product product = productService.getProduct(id);
-        model.addAttribute("categories", categoryService.getCategories());
+        model.addAttribute("categories", categoryService.getCategories(Pageable.unpaged()));
         model.addAttribute("product", product);
         return "shop/singleProduct";
     }
-
-//    @GetMapping
-//    public String indexView(Model model, @PathVariable ("category-id") UUID categoryId){
-//        model.addAttribute("products", productService.getProducts(categoryId));
-//        return "shop/index";
-//    }
 
 
 }

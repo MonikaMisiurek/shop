@@ -14,11 +14,21 @@ insert into categories (id, name) values
 select *from categories;
 select * from products;
 insert into products (id, name,price, category_id)values
+      (gen_random_uuid(),'Łopata',10, (select id from categories where name = 'Dom i ogród')),
+      (gen_random_uuid(),'Grabie',10, (select id from categories where name = 'Dom i ogród'));
+insert into products (id, name,price, category_id)values
      (gen_random_uuid(),'Smycz',10, (select id from categories where name = 'Zwierzęta')),
-     (gen_random_uuid(),'Legowisko',20, (select id from categories where name = 'Zwierzęta'));
-insert into products (id, name, category_id)values
-    (gen_random_uuid(),'Lalka', (select id from categories where name = 'Dziecko')),
-    (gen_random_uuid(),'Samochodzik', (select id from categories where name = 'Dziecko'));
+     (gen_random_uuid(),'Legowisko',10, (select id from categories where name = 'Zwierzęta'));
+insert into products (id, name,price, category_id)values
+      (gen_random_uuid(),'Drapak',10, (select id from categories where name = 'Zwierzęta')),
+      (gen_random_uuid(),'Karma',10, (select id from categories where name = 'Zwierzęta')),
+      (gen_random_uuid(),'Kaganiec',10, (select id from categories where name = 'Zwierzęta')),
+      (gen_random_uuid(),'Domek',10, (select id from categories where name = 'Zwierzęta'));
+insert into products (id, name,price, category_id)values
+    (gen_random_uuid(),'Lalka',10, (select id from categories where name = 'Dziecko')),
+    (gen_random_uuid(),'Wózek dla lalek',10, (select id from categories where name = 'Dziecko')),
+    (gen_random_uuid(),'Miś pluszowy',10, (select id from categories where name = 'Dziecko')),
+    (gen_random_uuid(),'Samochodzik',10, (select id from categories where name = 'Dziecko'));
 insert into products (id, name,price, category_id)values
   (gen_random_uuid(),'Mata do ćwiczeń',10, (select id from categories where name = 'Zdrowie')),
-  (gen_random_uuid(),'Roler',20, (select id from categories where name = 'Zdrowie'));
+  (gen_random_uuid(),'Roler',10, (select id from categories where name = 'Zdrowie'));

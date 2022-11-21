@@ -1,12 +1,17 @@
 package pl.misiurek.shop.admin.category.controller;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.misiurek.shop.admin.category.domian.model.Category;
 import pl.misiurek.shop.admin.category.service.CategoryService;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Controller
 @RequestMapping("/admin/categories")
@@ -20,8 +25,14 @@ public class CategoryAdminViewController {
 
 
     @GetMapping
-    public String indexView(Model model){
-        model.addAttribute("categories", categoryService.getCategories());
+    public String indexView(
+            Pageable pageable,
+            @RequestParam(name = "s", required = false) String search,
+            Model model){
+        Page<Category>categoryPage = categoryService.getCategories(pageable, search);
+        model.addAttribute("categoriesPage", categoryPage);
+        model.addAttribute("search", search);
+        paging(model, categoryPage);
         return "admin/category/index";
 //        return "admin/template";
     }
@@ -55,6 +66,17 @@ public class CategoryAdminViewController {
     public String add(Category category){
         categoryService.createCategory(category);
         return "redirect:/admin/categories";
+    }
+
+
+    private void paging(Model model, Page page){
+        int totalPages = page.getTotalPages();
+        if(totalPages > 0){
+            List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages)
+                    .boxed()
+                    .collect(Collectors.toList());
+            model.addAttribute("pageNumbers", pageNumbers);
+        }
     }
 
 }

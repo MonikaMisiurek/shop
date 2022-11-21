@@ -28,7 +28,8 @@ public class ProductApiController {
     }
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    Product createProduct(@PathVariable ("category-id")UUID categoryId,@RequestBody Product product){
+    Product createProduct(@PathVariable ("category-id")UUID categoryId,
+                          @RequestBody Product product){
         return productService.createProduct(categoryId, product);
     }
 

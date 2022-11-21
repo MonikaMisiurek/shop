@@ -61,6 +61,7 @@
 
                                 <form th:object="${product}" method="post" action="/admin/products">
                                     Name: <input type="text" th:field="*{name}" /> <br />
+                                    Price: <input type="text" th:field="*{price}"/> <br/>
 
                                     <div class="card-footer">
                                         <button type="submit" class="btn btn-primary">Add</button>

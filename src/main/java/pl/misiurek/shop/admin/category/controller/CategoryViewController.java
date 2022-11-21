@@ -1,5 +1,6 @@
 package pl.misiurek.shop.admin.category.controller;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,7 +33,7 @@ public class CategoryViewController {
         Category category = categoryService.getCategory(id);
         List<Product> products = productService.findAllByCategoryId(id);
 
-        model.addAttribute("categories", categoryService.getCategories());
+        model.addAttribute("categories", categoryService.getCategories(Pageable.unpaged()));
         model.addAttribute("category", category);
         model.addAttribute("products", products);
 
