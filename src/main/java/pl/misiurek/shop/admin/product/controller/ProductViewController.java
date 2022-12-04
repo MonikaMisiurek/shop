@@ -1,5 +1,6 @@
 package pl.misiurek.shop.admin.product.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,27 +14,22 @@ import pl.misiurek.shop.admin.product.service.ProductService;
 import java.util.UUID;
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/products")
 public class ProductViewController {
     private final ProductService productService;
-
     private final CategoryService categoryService;
-
-    public ProductViewController(ProductService productService, CategoryService categoryService) {
-        this.productService = productService;
-        this.categoryService = categoryService;
-    }
 
 
     @GetMapping
-    public String indexView(Model model){
+    public String indexView(Model model) {
         model.addAttribute("categories", categoryService.getCategories(Pageable.unpaged()));
         model.addAttribute("products", productService.getProductsWithoutCategory(Pageable.unpaged()));
         return "shop/index";
     }
 
     @GetMapping("{id}")
-    public String singleProductView(Model model, @PathVariable UUID id){
+    public String singleProductView(Model model, @PathVariable UUID id) {
         Product product = productService.getProduct(id);
         model.addAttribute("categories", categoryService.getCategories(Pageable.unpaged()));
         model.addAttribute("product", product);

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <base href="/cv/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>cv</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body id="page-top">
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-block d-lg-none">Clarence Taylor</span>
+        <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="..." /></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Oto ja!</a></li>
+<!--            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Certificates">Certyfikaty</a></li>-->
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Umiejętności</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Doświadczenie</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Edukacja</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#zainteresowania">Zainteresowania</a></li>
+        </ul>
+    </div>
+</nav>
+<!-- Page Content-->
+<div class="container-fluid p-0">
+    <!-- About-->
+    <section class="resume-section" id="about">
+        <div class="resume-section-content">
+            <h1 class="mb-0">
+                Monika
+                <span class="text-primary">Misiurek</span>
+            </h1>
+            <div class="subheading mb-5">
+                Warszawa· tel: 794003964 · monika.misiurek01@gmail.com
+            </div>
+            <p class="lead mb-5">Rozpoczynając studia nie znałam jeszcze swojej prawdziwej pasji, którą jest programowanie. Na szczęście ją odnalazłam! Obecnie skupiam się na doskonaleniu moich umiejętności z zakresu programowania w języku Java.</p>
+            <div class="social-icons">
+                <a class="social-icon" th:href="@{'https://linkedin.com/in/monikamisiurek'}"><i class="fab fa-linkedin-in"></i></a>
+                <a class="social-icon" th:href="@{'https://github.com/MonikaMisiurek'}"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+    <hr class="m-0" />
+    <!-- certificates-->
+<!--    <section class="resume-section" id="certificates">-->
+<!--    <div>-->
+<!--        <p class="lead mb-0"><a th:href="@{'https://app.diplomasafe.com/pl-PL/diploma/dbbf778997529331f3f8cd85ff60618d9f99574b7'}" class="stretched-link">Java od podstaw</a></p>-->
+<!--&lt;!&ndash;        <h3><a th:href="@{'https://app.diplomasafe.com/pl-PL/diploma/d17784b612f6808f1f6d5a46b2e54b2b67ca98cbb/scrum'}" class="stretched-link">Scrum</a></h3>&ndash;&gt;-->
+<!--    </div>-->
+<!--    </section>-->
+<!--    <hr class="m-0" />-->
+    <!-- Skills-->
+    <section class="resume-section" id="skills">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Umiejętności</h2>
+                    <p>Java</p>
+                    <p>Spring</p>
+                    <p>SQL</p>
+                    <p>Hibernate</p>
+                    <p>Git</p>
+                    <p>Praca zaespołowa</p>
+
+                </div>
+    </section>
+    <hr class="m-0" />
+    <!-- Experience-->
+    <section class="resume-section" id="experience">
+        <div class="resume-section-content">
+            <h2 class="mb-5">Doświadczenie</h2>
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                    <h3 class="mb-0">Ambasador marki</h3>
+                    <div class="subheading mb-3">Adecco</div>
+                    <p>Praca na tym stanowisku pozwoliła mi na rozwijanie głównie moich umiejętności miękkich. Dzięki niej niestraszna mi praca zespołowa. Potrafię też samodzielnie rozwiązywać napotkane problemy.</p>
+
+                </div>
+                <div class="flex-shrink-0"><span class="text-primary">Maj 2021 - Sierpień 2022</span></div>
+            </div>
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                    <h3 class="mb-0">Doradca klienta</h3>
+                    <div class="subheading mb-3">Empik Group</div>
+                    <p>Praca ta pozwoliła mi rozwijać moje umiejętności pracy zespołowej.</p>
+                </div>
+                <div class="flex-shrink-0"><span class="text-primary">Listopad 2018 - Kwiecień 2020</span></div>
+            </div>
+        </div>
+
+    </section>
+    <hr class="m-0" />
+    <!-- education-->
+    <section class="resume-section" id="education">
+        <div class="resume-section-content">
+            <h2 class="mb-5">Edukacja</h2>
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                    <h3 class="mb-0">Uniwersytet Marii Curie-Skłodowskiej w Lublinie</h3>
+                    <div class="subheading mb-3">Fizjoterapia</div>
+                </div>
+                <div class="flex-shrink-0"><span class="text-primary">Październik 2017 - Lipiec 2022</span></div>
+            </div>
+        </div>
+    </section>
+    <hr class="m-0" />
+    <!-- Awards-->
+    <section class="resume-section" id="zainteresowania">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Zainteresowania</h2>
+                    <p>Wieczorami zazwyczaj sięgam po książkę. Ostatnimi czasy pochłania mnie świat prehistorycznych gadów.</p>
+                    <p class="mb-0">Jednak kiedy tylko sprzyja pogoda budzi się we mnie mały podróżnik! Każda wycieczka nawet ta najmniejsza jest dla mnie cenną okazją na poznanie otaczającego mnie świata.</p>
+                </div>
+    </section>
+</div>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+</body>
+</html>

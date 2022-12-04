@@ -32,3 +32,6 @@ insert into products (id, name,price, category_id)values
 insert into products (id, name,price, category_id)values
   (gen_random_uuid(),'Mata do ćwiczeń',10, (select id from categories where name = 'Zdrowie')),
   (gen_random_uuid(),'Roler',10, (select id from categories where name = 'Zdrowie'));
+
+
+select * from users;

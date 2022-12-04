@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="admin/template :: head(title)"></head>
+<head th:replace="admin/template :: head(title= 'Product edit')"></head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
@@ -12,21 +12,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Starter Page</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
+    <th:block th:replace="admin/template :: contentHeader"/>
     <!-- /.content-header -->
 
     <!-- Main content -->
@@ -64,6 +50,7 @@
                   <div class="card-body">
                     <div class="form-group">
                       <label for="productName">Name</label>
+                      <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span>
                       <input th:field="*{name}" type="text" class="form-control" id="productName" placeholder="Product name">
                       <input th:field="*{id}" type="hidden" />
                     </div>
@@ -71,6 +58,7 @@
                   <div class="card-body">
                     <div class="form-group">
                       <label for="productPrice">Price</label>
+                      <span class="error" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Name Error</span>
                       <input th:field="*{price}" type="text" class="form-control" id="productPrice" placeholder="Product Price">
                       <input th:field="*{id}" type="hidden" />
                     </div>

@@ -1,32 +1,32 @@
 package pl.misiurek.shop.admin.category.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.misiurek.shop.admin.category.domian.model.Category;
+import pl.misiurek.shop.admin.category.domian.model.CategoryDto;
 import pl.misiurek.shop.admin.category.domian.repository.CategoryRepository;
 
-import java.util.List;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class CategoryService {
 
     private final CategoryRepository categoryRepository;
 
-    public CategoryService(CategoryRepository categoryRepository) {
-        this.categoryRepository = categoryRepository;
-    }
     @Transactional(readOnly = true)
     public Page<Category> getCategories(Pageable pageable) {
-        return getCategories(pageable,null);
+        return getCategories(pageable, null);
     }
+
     @Transactional(readOnly = true)
     public Page<Category> getCategories(Pageable pageable, String search) {
-        if(search == null) {
+        if (search == null) {
             return categoryRepository.findAll(pageable);
-        }else {
+        } else {
             return categoryRepository.findByNameContainingIgnoreCase(search, pageable);
         }
     }
@@ -37,21 +37,30 @@ public class CategoryService {
     }
 
     @Transactional
+    public Category createCategoryDto(CategoryDto categoryDto) {
+        Category category = new Category();
+        category.setName(categoryDto.getName());
+        categoryRepository.save(category);
+        return category;
+    }
+
+    @Transactional
     public Category createCategory(Category categoryRequest) {
         Category category = new Category();
         category.setName(categoryRequest.getName());
-        return categoryRepository.save(category);
+        categoryRepository.save(category);
+        return category;
     }
 
     @Transactional
     public Category updateCategory(UUID id, Category categoryRequest) {
-        Category category=categoryRepository.findById(id).get();
+        Category category = categoryRepository.findById(id).get();
         category.setName(categoryRequest.getName());
         return categoryRepository.save(category);
     }
 
     @Transactional
     public void deleteCategory(UUID id) {
-         categoryRepository.deleteById(id);
+        categoryRepository.deleteById(id);
     }
 }
