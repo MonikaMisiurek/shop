@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="shop/index :: head(title= 'Product')">
+<head th:replace="shop/index :: head(title = 'Shop')">
 </head>
 <body>
 <th:block th:replace="shop/index :: header" />
@@ -50,12 +50,8 @@
 </main>
 
 
-<footer th:replace="shop/index :: footer" class="blog-footer">
-    <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-    <p>
-        <a href="#">Back to top</a>
-    </p>
-</footer>
+<footer th:replace="shop/index :: footer" class="blog-footer"></footer>
+
 
 </body>
 </html>

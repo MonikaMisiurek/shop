@@ -1,81 +1,68 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="shop/index :: head(title= 'Category')">
+<head th:replace="shop/index :: head(title = 'Shop')">
 </head>
 <body>
 <th:block th:replace="shop/index :: header" />
 
-<main class="container">
+    <main class="container">
 
-    <div class="row mb-2">
-        <div class="col-md-6">
-        </div>
-        <div class="col-md-6">
-        </div>
-    </div>
-
-    <div class="row g-5">
-        <div class="col-md-8">
-
-
-
-            <article class="blog-post">
-                <h3 th:text="${category.name}"></h3>
-
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Picture</th>
-                        <th>View Product</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="product : ${products}">
-                        <td th:text="${product.name}">Product</td>
-                        <td th:text="${product.price}">Price</td>
-                        <td>
-
-                        </td>
-                        <td>
-                            <a th:href="@{'/products/'+${product.id}}" class="btn btn-primary btn-sm">
-                                <i class="fas fa-folder"></i>View
-                            </a>
-                        </td>
-                        <td>
-                            <a href="#" class="btn btn-success btn-sm">
-                                <i class="fas fa-folder"></i>Add Product
-                            </a>
-                        </td>
-                    </tr>
-                    </tbody>
-                    <tfoot>
-                    </tfoot>
-                </table>
-
-            </article>
-
-
-<!--            <nav class="blog-pagination" aria-label="Pagination">-->
-<!--                <a class="btn btn-outline-primary" href="#">Older</a>-->
-<!--                <a class="btn btn-outline-secondary disabled">Newer</a>-->
-<!--            </nav>-->
-
+        <div class="row mb-2">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6">
+            </div>
         </div>
 
-        <div th:replace="shop/index :: about" class="col-md-4"/>
+        <div class="row g-5">
+            <div class="col-md-8">
 
-    </div>
 
-</main>
 
-<footer th:replace="shop/index :: footer" class="blog-footer">
-    <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-    <p>
-        <a href="#">Back to top</a>
-    </p>
-</footer>
+                <article class="blog-post">
+                    <h3 th:text="${category.name}"></h3>
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Picture</th>
+                            <th>View Product</th>
+                            <th> </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="product : ${products}">
+                            <td th:text="${product.name}">Product</td>
+                            <td th:text="${product.price}">Price</td>
+                            <td>
+
+                            </td>
+                            <td>
+                                <a th:href="@{'/products/'+${product.id}}" >
+                                    <button class="viewbutton">View</button>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="#">
+                                    <button class="addbutton">Add Product</button>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </article>
+            </div>
+
+            <div th:replace="shop/index :: about" class="col-md-4"/>
+        </div>
+
+    </main>
+
+<footer th:replace="shop/index :: footer" class="blog-footer"></footer>
 
 
 

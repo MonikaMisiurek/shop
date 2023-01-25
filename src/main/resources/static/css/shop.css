@@ -1,0 +1,286 @@
+body
+{
+    background-color: rgba(204, 255, 229, 0.8);
+    color: black;
+    font-size: 16px;
+}
+h1 > a
+{
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    font-size: 48px;
+    font-family: 'Cormorant Garamond', serif;
+}
+h1 > a:hover
+{
+    cursor: pointer;
+    color: #232323;
+}
+.navigation
+{
+    z-index: 100;
+    position: relative;
+    background-color: #00a379;
+    color: black;
+    width: 100%;
+    padding: 10px ;
+    border-radius: 3px
+;
+}
+.navigation > nav > a
+{
+    text-decoration: none;
+    color: black;
+    padding: 0 20px ;
+    font-size: 16px;
+    border-right: dotted #0c4128;
+}
+.navigation > nav > a:first-child
+{
+    border-left: dotted #0c4128;
+}
+.navigation > nav > a:hover
+{
+    cursor: pointer;
+    color: #232323;
+}
+.divbutton
+{
+    border-radius: 5px;
+    border: black;
+    background-color: #00a379;
+    margin-left: 10px;
+}
+
+.button
+{
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+}
+.container
+{
+    margin-top: 10px;
+}
+h3 {
+    font-family: 'Cormorant Garamond', sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    letter-spacing: 2px;
+    color: black;
+    text-decoration: none;
+}
+.containeroffer
+{
+    width: 100%;
+    height: 400px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.offer
+{
+    margin: 10px;
+    float: left;
+    width: 588px;
+    min-height: 400px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 1px solid black;
+}
+.offerimg
+{
+    position: relative;
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: 15px;
+    width: 110px;
+    height: 110px;
+}
+.offerimg img
+{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    transition: all 0.5s ease-in-out;
+}
+.offerimg img:hover
+{
+    transform: scale(0.9);
+    cursor: pointer;
+}
+
+.offertext
+{
+    display: inline-block;
+    padding-top: 30px;
+    width: 400px;
+    font-size: 15px;
+}
+h3 a
+{
+    font-family: 'Cormorant Garamond', sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    letter-spacing: 2px;
+    color: black;
+    text-decoration: none;
+}
+h3 a:hover
+{
+    color: #424242;
+    cursor: pointer;
+}
+article
+{
+    margin-top: 10px;
+}
+.about
+{
+    margin-top: 20px;
+    padding-top: 10px;
+}
+h2
+{
+    font-family: 'Cormorant Garamond', sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    letter-spacing: 2px;
+    color: black;
+    text-decoration: none;
+}
+.p
+{
+    text-align: justify;
+}
+.socials
+{
+    width:100%;
+    text-align: center;
+}
+
+.socialdivs
+{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.fb
+{
+    width: 250px;
+    height: 80px;
+    float: left;
+}
+.fb:hover
+{
+    cursor: pointer;
+    background-color: #3b5998;
+}
+
+.li
+{
+    width: 250px;
+    height: 80px;
+    float: left;
+
+}
+.li:hover
+{
+    cursor: pointer;
+    background-color: #0e76a8;
+}
+.gh
+{
+    width: 250px;
+    height: 80px;
+    float: left;
+
+}
+.gh:hover
+{
+    cursor: pointer;
+    background-color: #333333;
+}
+
+.gmail
+{
+    width: 250px;
+    height: 80px;
+    float: left;
+
+}
+.gmail:hover
+{
+    cursor: pointer;
+    background-color: #BB001B;
+}
+
+.info
+{
+    font-size: 10px;
+    text-align: center;
+}
+.collab
+{
+    background-color: #00a379;
+    padding: 10px;
+    border-radius: 3px;
+
+}
+.collab a
+{
+    text-decoration: none;
+    color: black;
+    font-family: 'Cormorant Garamond', sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+li a
+{
+    text-decoration: none;
+    color: black;
+}
+
+li a:hover
+{
+    color: #424242;
+    color: black;
+}
+
+table, th, td {
+    border: 1px solid #0c4128;
+}
+.viewbutton
+{
+    background-color: #ffb776;
+    color: black;
+    border: 1px solid #fcad66;
+    border-radius: 3px;
+}
+.viewbutton:hover
+{
+    cursor: pointer;
+    background-color: #ff9f46;
+    -webkit-box-shadow: 0px 0px 2px 1px rgb(73, 74, 91);
+    -moz-box-shadow: 0px 0px 2px 1px rgb(73, 74, 91);
+    box-shadow: 0px 0px 2px 1px rgb(73, 74, 91);
+}
+.addbutton
+{
+    background-color: #00a379;
+    color: black;
+    border: 1px solid #018563;
+    border-radius: 3px;
+}
+
+.addbutton:hover
+{
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 2px 1px rgb(73, 74, 91);
+    -moz-box-shadow: 0px 0px 2px 1px rgb(73, 74, 91);
+    box-shadow: 0px 0px 2px 1px rgb(73, 74, 91);
+}

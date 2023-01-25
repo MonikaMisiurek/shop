@@ -8,11 +8,15 @@
 
     <title th:text="${title}">Default template title</title>
 
+    <link rel="stylesheet" href="fontello/css/fontello.css">
+
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <style> @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,300&display=swap'); </style>
     <meta name="theme-color" content="#7952b3">
 
     <style>
@@ -35,7 +39,7 @@
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="/css/blog.css" rel="stylesheet">
+    <link href="/css/shop.css" rel="stylesheet">
     <link href="/css/custom.css" rel="stylesheet">
 </head>
 <body>
@@ -43,30 +47,28 @@
 <div th:fragment="header" class="container">
     <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
-            <div class="col-4 pt-1">
-                <a class="btn btn-sm btn-outline-secondary"  th:href="'/shop'">Home</a>
-            </div>
+            <div class="col-4 pt-1"></div>
             <div class="col-4 text-center">
-                <a class="blog-header-logo text-dark" href="#">Shop</a>
+                <h1><a th:href="'/shop'">Shop</a></h1>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
                 <a class="link-secondary" href="#" aria-label="Search"/>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
                 </a>
-                <a sec:authorize="isAnonymous()" class="btn btn-sm btn-outline-secondary" th:href="@{'/shop/users/register'}">Sign up</a>
-                <a sec:authorize="isAnonymous()" class="btn btn-sm btn-outline-secondary" th:href="@{'/login'}">Login </a>
-                <a sec:authorize="isAuthenticated()" class="btn btn-sm btn-outline-secondary" th:href="@{'/shop/users/'}">Twoje Konto</a>
-                <a sec:authorize="hasAnyAuthority('ADMIN','MANAGER')" class="btn btn-sm btn-outline-secondary" th:href="@{'/admin/categories'}">AdminPage </a>
-                <a sec:authorize="isAuthenticated()" class="btn btn-sm btn-outline-secondary" th:href="@{'/logout'}">Logout </a>
+                <div class="divbutton" ><a sec:authorize="isAnonymous()" class="button" th:href="@{'/shop/users/register'}">Sign up</a></div>
+                <div class="divbutton" ><a sec:authorize="isAnonymous()" class="button" th:href="@{'/login'}">Login </a></div>
+                <div class="divbutton" ><a sec:authorize="isAuthenticated()" class="button" th:href="@{'/shop/users/'}">Twoje Konto</a></div>
+                <div class="divbutton" > <a sec:authorize="hasAnyAuthority('ADMIN','MANAGER')" class="button" th:href="@{'/admin/categories'}">AdminPage </a></div>
+                <div class="divbutton" >  <a sec:authorize="isAuthenticated()" class="button" th:href="@{'/logout'}">Logout </a></div>
 
 
             </div>
         </div>
     </header>
 
-    <div class="nav-scroller py-1 mb-2">
-        <nav class="nav d-flex justify-content-between">
-            <a th:each="category : ${categories}" th:text="${category.name}" class="p-2 link-secondary" th:href="@{'/categories/'+${category.id}}">Category</a>
+    <div class="navigation">
+        <nav>
+            <a th:each="category : ${categories}" th:text="${category.name}"  th:href="@{'/categories/'+${category.id}}">Category</a>
         </nav>
     </div>
 </div>
@@ -80,38 +82,37 @@
         </div>
     </div>
 
-    <div class="row mb-2">
-        <div class="col-md-6">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-primary">World</strong>
-                    <h3 class="mb-0">Featured post</h3>
-                    <div class="mb-1 text-muted">Nov 12</div>
-                    <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="stretched-link">Continue reading</a>
+        <div th:fragment="offer" class="containeroffer">
+            <div class="offer">
+                <div class="offerimg">
+                    <a href="#">
+                        <img src="img/lopata.jpg" alt="łopata">
+                    </a>
                 </div>
-                <div class="col-auto d-none d-lg-block">
-                    <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 
+                <div class="offertext">
+                    <h3><a href="#">Oferta miesiąca</a></h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar sit amet dui ut tempor. Duis sed bibendum nisl. Vivamus ac magna tellus. Vivamus et iaculis neque. In hac habitasse platea dictumst. Fusce ac efficitur erat. Nunc a orci dolor. Duis vulputate risus a tortor consectetur, eget fermentum nibh pulvinar. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In arcu massa, rhoncus accumsan massa nec, tempus elementum erat. Morbi porttitor elit vel dui rhoncus, in placerat lacus dapibus.</p>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-success">Design</strong>
-                    <h3 class="mb-0">Post title</h3>
-                    <div class="mb-1 text-muted">Nov 11</div>
-                    <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="stretched-link">Continue reading</a>
-                </div>
-                <div class="col-auto d-none d-lg-block">
-                    <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 
+            <div class="offer">
+                <div class="offerimg">
+                    <a href="#">
+                        <img src="img/lopata.jpg" alt="łopata">
+                    </a>
+                </div>
+
+                <div class="offertext">
+                    <h3><a href="#">Oferta miesiąca</a></h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar sit amet dui ut tempor. Duis sed bibendum nisl. Vivamus ac magna tellus. Vivamus et iaculis neque. In hac habitasse platea dictumst. Fusce ac efficitur erat. Nunc a orci dolor. Duis vulputate risus a tortor consectetur, eget fermentum nibh pulvinar. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In arcu massa, rhoncus accumsan massa nec, tempus elementum erat. Morbi porttitor elit vel dui rhoncus, in placerat lacus dapibus.</p>
                 </div>
             </div>
+
+            <div style="clear: both"></div>
         </div>
-    </div>
 
     <div class="row g-5">
         <div class="col-md-8">
@@ -243,8 +244,8 @@
 
         <div th:fragment="about" class="col-md-4">
             <div class="position-sticky" style="top: 2rem;">
-                <div class="p-4 mb-3 bg-light rounded">
-                    <h4><a th:href="@{'shop/cv'}" class="stretched-link">Współpraca</a></h4>
+                <div class="collab">
+                    <h4><a th:href="@{'/shop/cv'}" class="stretched-link">Współpraca</a></h4>
                     <p class="mb-0">Cześć jeżeli chcesz poznać mnie bliżej kliknij powyższy link!
                     </p>
                 </div>
@@ -266,15 +267,6 @@
                         <li><a href="#">April 2020</a></li>
                     </ol>
                 </div>
-
-                <div class="p-4">
-                    <h4 class="fst-italic">Elsewhere</h4>
-                    <ol class="list-unstyled">
-                        <li><a href="#">GitHub</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Facebook</a></li>
-                    </ol>
-                </div>
             </div>
         </div>
     </div>
@@ -282,10 +274,28 @@
 </main>
 
 <footer th:fragment="footer" class="blog-footer">
-    <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-    <p>
-        <a href="#">Back to top</a>
-    </p>
+
+    <div class="socials">
+
+        <div class="socialdivs">
+            <div class="fb">
+                <i class="icon-facebook-squared"></i>
+            </div>
+            <div class="li">
+                <i class="icon-linkedin"></i>
+            </div>
+            <div class="gh">
+                <i class="icon-github-circled"></i>
+            </div>
+            <div class="gmail">
+                <i class="icon-gmail"></i>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <div class="info">
+    <p>2023</p>
+    </div>
 </footer>
 
 
