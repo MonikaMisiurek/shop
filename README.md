@@ -1,4 +1,5 @@
-# shop
+# shop 
+
 "Shop"
 
 Aplikacja stworzona za pomocą frameworka Spring. 
